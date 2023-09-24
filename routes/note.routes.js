@@ -44,12 +44,12 @@ PostRouter.patch("/update/:noteID",auth,async(req,res)=>{
        
         await NoteModel.findByIdAndUpdate({_id:noteID},payload)
     }else{
-        res.status(200).send({"msg":"YOu are not authorized"})
+        res.status(200).json({msg:"YOu are not authorized"})
     }
 
 
 //const user=await postModel.findOne({id})
-res.status(200).send({"msg":"Post is updated"})
+res.status(200).json({"msg":"Post is updated"})
 }catch(err){
     res.status(400).send({"error":err})
 }
